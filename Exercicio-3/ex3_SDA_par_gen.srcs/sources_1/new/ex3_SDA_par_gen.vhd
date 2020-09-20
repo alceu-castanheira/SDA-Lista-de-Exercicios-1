@@ -52,7 +52,7 @@ architecture Behavioral of ex3_SDA_par_gen is
 begin
 
     -- Copiando a entrada para os bits mais significativos da saída.
-    data_out(n downto 1) <= data_in;
+    -- data_out(n downto 1) <= data_in;
     
     -- Processo que implementa o gerador de paridade par. Notar a lista de sensibilidade:
     -- sempre que o valor de data_in mudar, o processo é executado.
@@ -78,7 +78,7 @@ begin
         
         -- Após realizar todas as operações XOR, o bit de paridade par é atribuido ao bit
         -- menos significativo de data_out.        
-        data_out(0) <= v_parity_bit;
+        data_out <= data_in & v_parity_bit;
         
         --A variável v_parity_bit retorna a 0, para reiniciar o processo de geração do bit de 
         -- paridade quando o valor de data_in mudar.
